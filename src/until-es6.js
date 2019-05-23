@@ -218,26 +218,6 @@ const subString = function(str, len, hasDot) {
 	return newStr;
 };
 /**
- * 验证码倒计时模块
- * @method  SC.util.autoTime
- * @param {jq object} selector 倒计时显示的元素
- * @param {int} time 倒计时总时间
- */
-const autoTime = function(selector, time) {
-	$(selector).removeClass("btn-primary").addClass("btn-default").html(time);
-	$(selector).attr("disabled", "disabled");
-	time--;
-	if (time > 0) {
-		setTimeout(function() {
-			Util.autoTime(selector, time);
-		}, 1000);
-	} else {
-		$(selector).removeClass("btn-default").addClass("btn-primary").html("重新发送");
-		$(selector).removeAttr("disabled");
-		time = 60;
-	}
-};
-/**
  * 根据key获取cookie的值
  * @method  Util.getCookie
  * @param {string} cname cookie的key
@@ -274,7 +254,7 @@ const getUrlParam = function(paras) {
 	}
 };
 /**
- * base加密解密
+ * base64加密解密
  * @type {[type]}
  */
 const Base64 = function {
@@ -451,7 +431,6 @@ export {
 	scrollTo,
 	cutStr,
 	subString,
-	autoTime,
 	getCookie,
 	getUrlParam,
 	Base64
